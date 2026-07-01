@@ -1,0 +1,316 @@
+/* ==========================================
+   MPESA Message Generator
+   layout.css
+   ========================================== */
+
+html,
+body{
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+body{
+    background:var(--background);
+    color:var(--text);
+    font-family:var(--font-family);
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    padding:24px;
+}
+
+/* ==========================================
+   APP
+   ========================================== */
+
+.app{
+
+    width:100%;
+    max-width:480px;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    position:relative;
+
+    background:var(--background);
+
+}
+
+/* ==========================================
+   PAGE SYSTEM
+   ========================================== */
+
+.page{
+
+    display:none;
+
+    width:100%;
+
+    min-height:100vh;
+
+    animation:fade .25s ease;
+
+}
+
+.page.active{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* ==========================================
+   HEADERS
+   ========================================== */
+
+header{
+
+    width:100%;
+
+    height:72px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:0 20px;
+
+    background:var(--surface);
+
+    border-bottom:1px solid var(--divider);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+header h2{
+
+    font-size:22px;
+
+    font-weight:500;
+
+}
+
+/* ==========================================
+   CHAT HEADER
+   ========================================== */
+
+.chatHeader{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+}
+
+.chatTitle{
+
+    font-size:18px;
+
+    font-weight:500;
+
+}
+
+.avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:#34A853;
+
+}
+
+/* ==========================================
+   MAIN CONTENT
+   ========================================== */
+
+main{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* ==========================================
+   CONTAINERS
+   ========================================== */
+
+.container{
+
+    width:100%;
+
+    padding:24px;
+
+}
+
+.section{
+
+    margin-bottom:24px;
+
+}
+
+/* ==========================================
+   DIVIDERS
+   ========================================== */
+
+.divider{
+
+    width:100%;
+
+    height:1px;
+
+    background:var(--divider);
+
+    margin:16px 0;
+
+}
+
+/* ==========================================
+   UTILITIES
+   ========================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.flex{
+
+    display:flex;
+
+}
+
+.column{
+
+    flex-direction:column;
+
+}
+
+.row{
+
+    flex-direction:row;
+
+}
+
+.space-between{
+
+    justify-content:space-between;
+
+}
+
+.align-center{
+
+    align-items:center;
+
+}
+
+.w100{
+
+    width:100%;
+
+}
+
+.mt8{
+
+    margin-top:8px;
+
+}
+
+.mt16{
+
+    margin-top:16px;
+
+}
+
+.mt24{
+
+    margin-top:24px;
+
+}
+
+.mb8{
+
+    margin-bottom:8px;
+
+}
+
+.mb16{
+
+    margin-bottom:16px;
+
+}
+
+.mb24{
+
+    margin-bottom:24px;
+
+}
+
+/* ==========================================
+   SCROLL
+   ========================================== */
+
+.scroll{
+
+    overflow-y:auto;
+
+    scrollbar-width:thin;
+
+}
+
+/* ==========================================
+   FADE
+   ========================================== */
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
