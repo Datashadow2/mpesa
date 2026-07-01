@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MPESA Message Generator</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= LANDING PAGE ================= -->
+
+    <section id="landingPage" class="page active">
+
+        <div class="landing">
+
+            <h1>MPESA</h1>
+
+            <p>Message Generator</p>
+
+            <button id="sendMoneyCard">
+                Send Money
+            </button>
+
+            <button id="pochiCard">
+                Pochi la Biashara
+            </button>
+
+            <button id="buyGoodsCard">
+                Buy Goods & Services
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- ================= GENERATOR ================= -->
+
+    <section id="generatorPage" class="page">
+
+        <header>
+
+            <button class="backButton" id="backHome">
+
+                ←
+
+            </button>
+
+            <h2 id="generatorTitle">
+
+                Send Money
+
+            </h2>
+
+        </header>
+
+
+
+
+
+        <div class="form">
+
+            <div class="field">
+
+                <label id="recipientLabel">
+
+                    Recipient Name
+
+                </label>
+
+                <input
+                    id="recipientInput"
+                    type="text"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+
+
+            <div class="field">
+
+                <label id="numberLabel">
+
+                    Phone Number
+
+                </label>
+
+                <input
+                    id="numberInput"
+                    type="text"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+
+
+            <div class="field">
+
+                <label>
+
+                    Amount (KSh)
+
+                </label>
+
+                <input
+                    id="amountInput"
+                    type="number"
+                    min="1"
+                >
+
+            </div>
+
+
+
+
+
+            <div class="field">
+
+                <label>
+
+                    Balance After Transaction
+
+                </label>
+
+                <input
+                    id="balanceInput"
+                    type="number"
+                >
+
+            </div>
+
+
+
+
+
+            <button id="generateButton">
+
+                Generate Message
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+    <!-- ================= CHAT ================= -->
+
+    <section id="chatPage" class="page">
+
+        <header class="chatHeader">
+
+            <button id="backGenerator">
+
+                ←
+
+            </button>
+
+            <div class="avatar"></div>
+
+            <div class="chatTitle">
+
+                MPESA
+
+            </div>
+
+            <button>
+
+                ⋮
+
+            </button>
+
+        </header>
+
+
+
+
+
+        <main
+            class="conversation"
+            id="conversation"
+        >
+
+            <div id="generatedMessage"></div>
+
+            <div
+                id="previewCard"
+                class="preview"
+            >
+
+                <div class="previewIcon">
+
+                    ↻
+
+                </div>
+
+                <div>
+
+                    Tap to load preview
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <div
+                class="replyNotice"
+                id="replyNotice"
+            >
+
+                Sender can't accept replies.
+
+                Contact them directly.
+
+                <a href="#">
+
+                    Learn more
+
+                </a>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+
+
+
+
+
+    <!-- ================= SETTINGS ================= -->
+
+    <section id="settingsPage" class="page">
+
+        <header>
+
+            <button id="backSettings">
+
+                ←
+
+            </button>
+
+            <h2>
+
+                Settings
+
+            </h2>
+
+        </header>
+
+
+
+
+
+        <div class="form">
+
+            <div class="field">
+
+                <label>
+
+                    Default Balance
+
+                </label>
+
+                <input
+                    id="defaultBalance"
+                    type="number"
+                >
+
+            </div>
+
+
+
+
+
+            <div class="remember">
+
+                <input
+                    type="checkbox"
+                    id="rememberValues"
+                >
+
+                <label for="rememberValues">
+
+                    Remember Previous Values
+
+                </label>
+
+            </div>
+
+
+
+
+
+            <button id="resetSettings">
+
+                Reset Defaults
+
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
