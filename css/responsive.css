@@ -1,0 +1,350 @@
+/* ==========================================
+   MPESA Message Generator
+   responsive.css
+   ========================================== */
+
+/* ===============================
+   LARGE TABLETS
+   =============================== */
+
+@media screen and (max-width:1024px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .app{
+
+        max-width:520px;
+
+    }
+
+}
+
+/* ===============================
+   TABLETS
+   =============================== */
+
+@media screen and (max-width:768px){
+
+    body{
+
+        padding:16px;
+
+    }
+
+    .app{
+
+        width:100%;
+
+        max-width:100%;
+
+    }
+
+    .landing{
+
+        padding:24px;
+
+    }
+
+    .landing h1{
+
+        font-size:42px;
+
+    }
+
+    .landing p{
+
+        font-size:16px;
+
+    }
+
+    header{
+
+        padding:0 16px;
+
+    }
+
+    .form{
+
+        padding:20px;
+
+    }
+
+    .conversation{
+
+        padding:18px 16px;
+
+    }
+
+}
+
+/* ===============================
+   MOBILE
+   =============================== */
+
+@media screen and (max-width:480px){
+
+    body{
+
+        padding:0;
+
+    }
+
+    .app{
+
+        width:100%;
+
+        max-width:100%;
+
+        min-height:100vh;
+
+    }
+
+    header{
+
+        height:64px;
+
+        padding:0 14px;
+
+    }
+
+    header h2{
+
+        font-size:20px;
+
+    }
+
+    .chatTitle{
+
+        font-size:17px;
+
+    }
+
+    .avatar{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .landing{
+
+        padding:20px;
+
+    }
+
+    .landing h1{
+
+        font-size:38px;
+
+    }
+
+    .landing p{
+
+        font-size:15px;
+
+        margin-bottom:36px;
+
+    }
+
+    .landing button{
+
+        height:58px;
+
+        font-size:16px;
+
+        padding:0 18px;
+
+    }
+
+    .form{
+
+        padding:18px;
+
+    }
+
+    .field{
+
+        margin-bottom:18px;
+
+    }
+
+    .field input{
+
+        height:52px;
+
+        font-size:15px;
+
+        padding:0 16px;
+
+    }
+
+    .primary-button{
+
+        height:54px;
+
+    }
+
+    .sms-bubble{
+
+        padding:16px;
+
+        font-size:14px;
+
+        border-radius:18px;
+
+    }
+
+    .preview{
+
+        padding:14px;
+
+    }
+
+    .replyNotice{
+
+        padding:14px;
+
+    }
+
+    .settings-container{
+
+        padding:18px;
+
+    }
+
+    .settings-card{
+
+        padding:18px;
+
+    }
+
+}
+
+/* ===============================
+   SMALL PHONES
+   =============================== */
+
+@media screen and (max-width:360px){
+
+    .landing h1{
+
+        font-size:34px;
+
+    }
+
+    .landing button{
+
+        height:54px;
+
+        font-size:15px;
+
+    }
+
+    header{
+
+        height:60px;
+
+    }
+
+    header h2{
+
+        font-size:18px;
+
+    }
+
+    .chatTitle{
+
+        font-size:16px;
+
+    }
+
+    .avatar{
+
+        width:34px;
+
+        height:34px;
+
+    }
+
+    .field input{
+
+        height:50px;
+
+        font-size:14px;
+
+    }
+
+    .sms-bubble{
+
+        padding:14px;
+
+        font-size:13px;
+
+    }
+
+}
+
+/* ===============================
+   LANDSCAPE
+   =============================== */
+
+@media screen and (orientation:landscape) and (max-height:600px){
+
+    .landing{
+
+        justify-content:flex-start;
+
+        padding-top:32px;
+
+    }
+
+    .landing p{
+
+        margin-bottom:28px;
+
+    }
+
+    .page{
+
+        min-height:auto;
+
+    }
+
+}
+
+/* ===============================
+   LARGE DESKTOPS
+   =============================== */
+
+@media screen and (min-width:1400px){
+
+    .app{
+
+        max-width:560px;
+
+    }
+
+}
+
+/* ===============================
+   REDUCED MOTION
+   =============================== */
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
