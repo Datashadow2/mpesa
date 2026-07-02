@@ -1,457 +1,82 @@
-<!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="theme-color"
-        content="#000000">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>M-PESA Message Generator</title>
-
-    <!-- CSS -->
-
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/generator.css">
-    <link rel="stylesheet" href="css/conversation.css">
-    <link rel="stylesheet" href="css/settings.css">
-    <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/style.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
-<div class="app">
-
-<!-- ==========================================
-HOME PAGE
-========================================== -->
-
-<section
-    id="homePage"
-    class="page active">
-
-    <div class="page-content">
-
-        <header class="home-header">
-
-            <h1 class="app-title">
-
-                Message
-
-            </h1>
-
-            <p class="app-subtitle">
-
-                SMS confirmations.
-
-            </p>
-
-        </header>
-
-        <main class="home-menu">
-
-            <button
-                id="sendMoney"
-                class="menu-button">
-
-                Send Money
-
-            </button>
-
-            <button
-                id="pochi"
-                class="menu-button">
-
-                Pochi la Biashara
-
-            </button>
-
-            <button
-                id="buyGoods"
-                class="menu-button">
-
-                Buy Goods & Services
-
-            </button>
-
-            <button
-                id="openSettings"
-                class="menu-button secondary">
-
-                Settings
-
-            </button>
-
-        </main>
-
-    </div>
-
-</section>
-
-<!-- ==========================================
-GENERATOR PAGE
-========================================== -->
-
-<section
-    id="generatorPage"
-    class="page">
-
-    <div class="page-content">
-
-        <header class="page-header">
-
-            <button
-                class="back-button"
-                data-back>
-
-                ←
-
-            </button>
-
-            <h2
-                id="generatorTitle">
-
-                Send Money
-
-            </h2>
-
-        </header>
-
-        <form
-            id="generatorForm"
-            autocomplete="off">
-
-            <!-- Recipient -->
-
-            <div
-                id="recipientField"
-                class="form-group">
-
-                <label for="recipient">
-
-                    Recipient Name
-
-                </label>
-
-                <input
-                    id="recipient"
-                    type="text"
-                    placeholder="John Doe">
-
+    <div id="app">
+        <!-- HOME SCREEN -->
+        <div id="home-screen" class="screen active">
+            <div class="home-header">
+                <h1>M-PESA Message Generator</h1>
+                <p>Confirmation messages.</p>
             </div>
-
-            <!-- Phone -->
-
-            <div
-                id="phoneField"
-                class="form-group">
-
-                <label for="phone">
-
-                    Phone Number
-
-                </label>
-
-                <input
-                    id="phone"
-                    type="tel"
-                    placeholder="0712345678">
-
+            <div class="home-actions">
+                <button class="home-btn" data-transaction="send">Send Money</button>
+                <button class="home-btn" data-transaction="pochi">Pochi la Biashara</button>
+                <button class="home-btn" data-transaction="goods">Buy Goods &amp; Services</button>
+                <button class="home-btn" data-target="settings-screen">Settings</button>
             </div>
-
-            <!-- Business -->
-
-            <div
-                id="businessField"
-                class="form-group">
-
-                <label for="business">
-
-                    Business Name
-
-                </label>
-
-                <input
-                    id="business"
-                    type="text"
-                    placeholder="Business Name">
-
-            </div>
-
-            <!-- Till -->
-
-            <div
-                id="tillNumberField"
-                class="form-group">
-
-                <label for="tillNumber">
-
-                    Till Number
-
-                </label>
-
-                <input
-                    id="tillNumber"
-                    type="number"
-                    placeholder="123456">
-
-            </div>
-
-            <!-- Amount -->
-
-            <div class="form-group">
-
-                <label for="amount">
-
-                    Amount (KES)
-
-                </label>
-
-                <input
-                    id="amount"
-                    type="number"
-                    placeholder="0">
-
-            </div>
-
-            <!-- Current Balance -->
-
-            <div class="form-group">
-
-                <label for="balance">
-
-                    Current M-PESA Balance
-
-                </label>
-
-                <input
-                    id="balance"
-                    type="number"
-                    placeholder="0">
-
-            </div>
-
-            <button
-                id="generateButton"
-                type="button"
-                class="generate-button">
-
-                Generate SMS
-
-            </button>
-
-        </form>
-
-    </div>
-
-</section>
-
-<!-- ==========================================
-CONVERSATION PAGE
-========================================== -->
-
-<section
-    id="chatPage"
-    class="page">
-
-    <div class="page-content conversation-page">
-
-        <header class="page-header">
-
-            <button
-                class="back-button"
-                data-back>
-
-                ←
-
-            </button>
-
-            <h2>
-
-                MPESA
-
-            </h2>
-
-        </header>
-
-        <main
-            id="generatedMessage"
-            class="conversation-container">
-
-            <!--
-
-            Messages will be inserted here by JavaScript.
-
-            Structure of each generated message:
-
-            <div class="message-group">
-
-                <div class="sms-bubble">
-
-                    Message...
-
-                </div>
-
-                <div class="preview-card">
-
-                    Tap to load preview
-
-                </div>
-
-                <div class="message-time">
-
-                    Today, 11:58 AM
-
-                </div>
-
-            </div>
-
-            -->
-
-        </main>
-
-        <!-- This stays at the bottom.
-             Only ONE reply notice in the whole conversation. -->
-
-        <footer class="conversation-footer">
-
-            <div class="reply-notice">
-
-                Sender can't accept replies.
-
-                <span>
-
-                    Contact them directly.
-
-                </span>
-
-                <a href="#">
-
-                    Learn more
-
-                </a>
-
-            </div>
-
-        </footer>
-
-    </div>
-
-</section>
-
-<!-- ==========================================
-SETTINGS PAGE
-========================================== -->
-
-<section
-    id="settingsPage"
-    class="page">
-
-    <div class="page-content">
-
-        <header class="page-header">
-
-            <button
-                class="back-button"
-                data-back>
-
-                ←
-
-            </button>
-
-            <h2>
-
-                Settings
-
-            </h2>
-
-        </header>
-
-        <div class="settings-content">
-
-            <div class="form-group">
-
-                <label
-                    for="defaultBalance">
-
-                    Default Balance
-
-                </label>
-
-                <input
-                    id="defaultBalance"
-                    type="number"
-                    placeholder="5000">
-
-            </div>
-
-            <div class="checkbox-group">
-
-                <label
-                    for="rememberBalance">
-
-                    Remember Balance
-
-                </label>
-
-                <input
-                    id="rememberBalance"
-                    type="checkbox"
-                    checked>
-
-            </div>
-
-            <button
-                type="button"
-                class="menu-button"
-                onclick="saveSettings()">
-
-                Save Settings
-
-            </button>
-
-            <button
-                type="button"
-                class="menu-button secondary"
-                onclick="resetSettings()">
-
-                Reset Settings
-
-            </button>
-
         </div>
 
+        <!-- GENERATOR SCREEN -->
+        <div id="generator-screen" class="screen">
+            <div class="generator-card">
+                <h2 id="generator-title">Send Money</h2>
+                <form id="generator-form" novalidate>
+                    <!-- dynamic fields injected here -->
+                    <div id="form-fields"></div>
+                    <button type="submit" class="generate-btn">Generate SMS</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- CONVERSATION SCREEN -->
+        <div id="conversation-screen" class="screen">
+            <div id="message-list">
+                <!-- messages appear here -->
+            </div>
+            <div id="conversation-footer">
+                <span>Sender can't accept replies.</span>
+                <span>Contact them directly.</span>
+                <span class="learn-more">Learn more</span>
+            </div>
+        </div>
+
+        <!-- SETTINGS SCREEN -->
+        <div id="settings-screen" class="screen">
+            <div class="settings-card">
+                <h2>Settings</h2>
+                <div class="setting-group">
+                    <label for="default-balance">Default Balance (Ksh)</label>
+                    <input type="number" id="default-balance" min="0" step="0.01" value="5000" />
+                </div>
+                <div class="setting-group toggle-group">
+                    <label for="remember-balance">Remember Balance</label>
+                    <input type="checkbox" id="remember-balance" checked />
+                </div>
+                <div class="settings-actions">
+                    <button id="save-settings" class="settings-btn primary">Save Settings</button>
+                    <button id="reset-settings" class="settings-btn secondary">Reset Settings</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM NAV -->
+        <nav id="bottom-nav">
+            <button data-target="home-screen" class="nav-btn active">🏠</button>
+            <button data-target="generator-screen" class="nav-btn">➕</button>
+            <button data-target="conversation-screen" class="nav-btn">💬</button>
+            <button data-target="settings-screen" class="nav-btn">⚙️</button>
+        </nav>
     </div>
 
-</section>
-</div>
-
-<!-- ==========================================
-JAVASCRIPT
-========================================== -->
-
-<script src="js/utils.js"></script>
-<script src="js/settings.js"></script>
-<script src="js/validation.js"></script>
-<script src="js/templates.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/generator.js"></script>
-<script src="js/app.js"></script>
-
+    <script src="script.js"></script>
 </body>
-
 </html>
