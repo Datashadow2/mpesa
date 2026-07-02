@@ -66,14 +66,10 @@ body {
   display: flex;
   flex-direction: column;
   height: 100dvh;
-  width: 100%;
+  width: 100vw;
   background: var(--bg-primary);
   overflow: hidden;
   position: relative;
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* ===== Screens ===== */
@@ -81,8 +77,8 @@ body {
   display: none;
   flex-direction: column;
   flex: 1;
-  min-height: 0;
-  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);
+  min-height: 100%;
+  padding: 16px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
@@ -327,8 +323,8 @@ body {
 /* ===== SMS Bubble ===== */
 .sms-bubble {
   background: var(--bg-card);
-  padding: 9px 13px;
-  border-radius: 18px 18px 18px 4px;
+  padding: 8px 12px;
+  border-radius: 20px;
   font-size: 14px;
   line-height: 1.22;
   letter-spacing: -0.1px;
@@ -343,7 +339,7 @@ body {
 .preview-card {
   background: var(--bg-surface);
   padding: 8px 13px;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 20px 20px;
   font-size: 13px;
   color: var(--text-secondary);
   width: 100%;
@@ -354,7 +350,7 @@ body {
 .timestamp {
   font-size: 11px;
   color: var(--text-hint);
-  margin-top: var(--spacing-2xs);
+  margin-top: 2px;
   padding-left: var(--spacing-md);
   letter-spacing: 0.2px;
 }
@@ -648,14 +644,3 @@ input[type="number"] {
   }
 }
 
-/* ========================================
-   SAFE AREA SUPPORT
-   ======================================== */
-@supports (padding: max(0px)) {
-  #app {
-    padding-left: max(var(--spacing-sm), env(safe-area-inset-left));
-    padding-right: max(var(--spacing-sm), env(safe-area-inset-right));
-    padding-top: max(var(--spacing-sm), env(safe-area-inset-top));
-    padding-bottom: max(var(--spacing-sm), env(safe-area-inset-bottom));
-  }
-}
