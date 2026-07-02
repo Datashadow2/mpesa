@@ -1,7 +1,6 @@
 /* ========================================
    M-PESA MESSAGE GENERATOR
-   Google Messages Dark Mode Style
-   Native Android Appearance
+   Google Messages Dark Mode - Native Android
    ======================================== */
 
 /* ===== CSS Variables ===== */
@@ -28,7 +27,6 @@
   --spacing-lg: 16px;
   --spacing-xl: 20px;
   --spacing-2xl: 24px;
-  --spacing-3xl: 32px;
   --font-family: 'Roboto', Arial, sans-serif;
   --bubble-max-width: 82%;
   --transition-fast: 0.12s ease;
@@ -66,19 +64,24 @@ body {
   display: flex;
   flex-direction: column;
   height: 100dvh;
-  width: 100vw;
+  width: 100%;
   background: var(--bg-primary);
   overflow: hidden;
   position: relative;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* ===== Screens ===== */
+/* ========================================
+   SCREENS - BASE
+   ======================================== */
 .screen {
   display: none;
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  padding: 16px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
@@ -90,18 +93,15 @@ body {
 }
 
 /* ===== Scrollbar ===== */
-.screen::-webkit-scrollbar,
-#message-list::-webkit-scrollbar {
+.screen::-webkit-scrollbar {
   width: 3px;
 }
 
-.screen::-webkit-scrollbar-track,
-#message-list::-webkit-scrollbar-track {
+.screen::-webkit-scrollbar-track {
   background: transparent;
 }
 
-.screen::-webkit-scrollbar-thumb,
-#message-list::-webkit-scrollbar-thumb {
+.screen::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: 3px;
 }
@@ -118,20 +118,13 @@ body {
   }
 }
 
-@keyframes ripple {
-  from {
-    transform: scale(0.95);
-    opacity: 0.6;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 /* ========================================
    HOME SCREEN
    ======================================== */
+#home-screen {
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);
+}
+
 .home-header {
   padding-top: var(--spacing-2xl);
   padding-bottom: var(--spacing-2xl);
@@ -161,7 +154,6 @@ body {
   padding-bottom: var(--spacing-2xl);
 }
 
-/* ===== Home Buttons ===== */
 .home-btn {
   display: block;
   width: 100%;
@@ -200,6 +192,10 @@ body {
 /* ========================================
    GENERATOR SCREEN
    ======================================== */
+#generator-screen {
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);
+}
+
 .generator-card {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
@@ -226,7 +222,6 @@ body {
   min-height: 0;
 }
 
-/* ===== Form Inputs ===== */
 .field-group {
   display: flex;
   flex-direction: column;
@@ -271,7 +266,6 @@ body {
   display: none !important;
 }
 
-/* ===== Generate Button ===== */
 .generate-btn {
   width: 100%;
   padding: 16px;
@@ -297,28 +291,30 @@ body {
    CONVERSATION SCREEN
    ======================================== */
 #conversation-screen {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
-    padding: var(--spacing-md) var(--spacing-md) 0;
+  padding: var(--spacing-md) var(--spacing-md) 0;
+  overflow: hidden;
 }
 
 #message-list {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 3px;
-    padding-bottom: 8px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: var(--spacing-sm);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
+#message-list::-webkit-scrollbar {
+  width: 3px;
+}
 
-/* ===== Message Items ===== */
+#message-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
 .message-item {
   display: flex;
   flex-direction: column;
@@ -327,11 +323,10 @@ body {
   animation: fadeIn 0.12s ease;
 }
 
-/* ===== SMS Bubble ===== */
 .sms-bubble {
   background: var(--bg-card);
-  padding: 8px 12px;
-  border-radius: 20px;
+  padding: 9px 13px;
+  border-radius: 18px 18px 18px 4px;
   font-size: 14px;
   line-height: 1.22;
   letter-spacing: -0.1px;
@@ -342,30 +337,30 @@ body {
   hyphens: auto;
 }
 
-/* ===== Preview Card ===== */
 .preview-card {
   background: var(--bg-surface);
   padding: 8px 13px;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 12px 12px;
   font-size: 13px;
   color: var(--text-secondary);
   width: 100%;
   margin-top: 0;
 }
 
-/* ===== Timestamp ===== */
 .timestamp {
   font-size: 11px;
   color: var(--text-hint);
-  margin-top: 2px;
+  margin-top: var(--spacing-2xs);
   padding-left: var(--spacing-md);
   letter-spacing: 0.2px;
 }
 
 /* ===== Conversation Footer ===== */
 #conversation-footer {
+  margin-top: auto;
+  flex-shrink: 0;
   background: var(--bg-primary);
-  padding: 8px 0 12px;
+  padding: var(--spacing-md) 0 var(--spacing-lg);
   border-top: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -373,8 +368,6 @@ body {
   gap: 2px;
   font-size: 13px;
   color: var(--text-secondary);
-  flex-shrink: 0;
-  margin-top: auto;
 }
 
 #conversation-footer .learn-more {
@@ -386,6 +379,10 @@ body {
 /* ========================================
    SETTINGS SCREEN
    ======================================== */
+#settings-screen {
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);
+}
+
 .settings-card {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
@@ -404,7 +401,6 @@ body {
   flex-shrink: 0;
 }
 
-/* ===== Setting Groups ===== */
 .setting-group {
   display: flex;
   justify-content: space-between;
@@ -449,7 +445,6 @@ body {
   flex-shrink: 0;
 }
 
-/* ===== Settings Buttons ===== */
 .settings-actions {
   display: flex;
   gap: var(--spacing-md);
@@ -507,16 +502,13 @@ input[type="number"] {
 }
 
 /* ========================================
-   SELECTION COLOR
+   SELECTION & FOCUS
    ======================================== */
 ::selection {
   background: var(--accent);
   color: #000000;
 }
 
-/* ========================================
-   FOCUS VISIBLE
-   ======================================== */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -651,3 +643,14 @@ input[type="number"] {
   }
 }
 
+/* ========================================
+   SAFE AREA SUPPORT
+   ======================================== */
+@supports (padding: max(0px)) {
+  #app {
+    padding-left: max(var(--spacing-sm), env(safe-area-inset-left));
+    padding-right: max(var(--spacing-sm), env(safe-area-inset-right));
+    padding-top: max(var(--spacing-sm), env(safe-area-inset-top));
+    padding-bottom: max(var(--spacing-sm), env(safe-area-inset-bottom));
+  }
+}
