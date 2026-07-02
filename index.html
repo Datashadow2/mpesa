@@ -9,6 +9,10 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0">
 
+    <meta
+        name="theme-color"
+        content="#000000">
+
     <title>M-PESA Message Generator</title>
 
     <!-- CSS -->
@@ -16,12 +20,12 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/generator.css">
+    <link rel="stylesheet" href="css/conversation.css">
+    <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/buttons.css">
-    <link rel="stylesheet" href="css/landing.css">
-    <link rel="stylesheet" href="css/generator.css">
-    <link rel="stylesheet" href="css/messages.css">
-    <link rel="stylesheet" href="css/settings.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/style.css">
@@ -32,34 +36,36 @@
 
 <div class="app">
 
-<!-- ==========================================================
+<!-- ==========================================
 HOME PAGE
-=========================================================== -->
+========================================== -->
 
 <section
     id="homePage"
     class="page active">
 
-    <div class="home-container">
+    <div class="page-content">
 
-        <h1 class="app-title">
+        <header class="home-header">
 
-            M-PESA Message Generator
+            <h1 class="app-title">
 
-        </h1>
+                Message
 
-        <p class="subtitle">
+            </h1>
 
-            Generate realistic M-PESA confirmation messages.
+            <p class="app-subtitle">
 
-        </p>
+                SMS confirmations.
 
-        <div class="menu">
+            </p>
+
+        </header>
+
+        <main class="home-menu">
 
             <button
-
                 id="sendMoney"
-
                 class="menu-button">
 
                 Send Money
@@ -67,9 +73,7 @@ HOME PAGE
             </button>
 
             <button
-
                 id="pochi"
-
                 class="menu-button">
 
                 Pochi la Biashara
@@ -77,9 +81,7 @@ HOME PAGE
             </button>
 
             <button
-
                 id="buyGoods"
-
                 class="menu-button">
 
                 Buy Goods & Services
@@ -87,238 +89,192 @@ HOME PAGE
             </button>
 
             <button
-
                 id="openSettings"
-
                 class="menu-button secondary">
 
                 Settings
 
             </button>
 
-        </div>
+        </main>
 
     </div>
 
 </section>
 
-<!-- ==========================================================
+<!-- ==========================================
 GENERATOR PAGE
-=========================================================== -->
+========================================== -->
 
 <section
-
     id="generatorPage"
-
     class="page">
 
-<div class="generator-container">
-
-<header class="page-header">
-
-<button
-
-    data-back
-
-    class="back-button">
-
-    ←
-
-</button>
-
-<h2
-
-    id="generatorTitle">
-
-    Transaction
-
-</h2>
-
-</header>
-
-<form
-
-    id="generatorForm"
-
-    autocomplete="off">
-
-<!-- Recipient -->
-
-<div
-
-    id="recipientField"
-
-    class="form-group">
-
-<label>
-
-Recipient Name
-
-</label>
-
-<input
-
-type="text"
-
-id="recipient"
-
-placeholder="John Doe">
-
-</div>
-
-<!-- Phone -->
-
-<div
-
-id="phoneField"
-
-class="form-group">
-
-<label>
-
-Phone Number
-
-</label>
-
-<input
-
-type="text"
-
-id="phone"
-
-placeholder="0712345678">
-
-</div>
-
-<!-- Business -->
-
-<div
-
-id="businessField"
-
-class="form-group">
-
-<label>
-
-Business Name
-
-</label>
-
-<input
-
-type="text"
-
-id="business"
-
-placeholder="Business">
-
-</div>
-
-<!-- Till -->
-
-<div
-
-id="tillNumberField"
-
-class="form-group">
-
-<label>
-
-Till Number
-
-</label>
-
-<input
-
-type="text"
-
-id="tillNumber"
-
-placeholder="123456">
-
-</div>
-
-<!-- Amount -->
-
-<div
-
-class="form-group">
-
-<label>
-
-Amount (KES)
-
-</label>
-
-<input
-
-type="number"
-
-id="amount"
-
-placeholder="0.00">
-
-</div>
-
-<!-- Balance -->
-
-<div
-
-class="form-group">
-
-<label>
-
-Current Balance
-
-</label>
-
-<input
-
-type="number"
-
-id="balance"
-
-placeholder="0.00">
-
-</div>
-
-<button
-
-type="button"
-
-id="generateButton"
-
-class="generate-button">
-
-Generate SMS
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-
-<!-- ==========================================================
-CONVERSATION PAGE
-=========================================================== -->
-
-<section
-
-    id="chatPage"
-
-    class="page">
-
-    <div class="conversation-container">
+    <div class="page-content">
 
         <header class="page-header">
 
             <button
+                class="back-button"
+                data-back>
 
-                data-back
+                ←
 
-                class="back-button">
+            </button>
+
+            <h2
+                id="generatorTitle">
+
+                Send Money
+
+            </h2>
+
+        </header>
+
+        <form
+            id="generatorForm"
+            autocomplete="off">
+
+            <!-- Recipient -->
+
+            <div
+                id="recipientField"
+                class="form-group">
+
+                <label for="recipient">
+
+                    Recipient Name
+
+                </label>
+
+                <input
+                    id="recipient"
+                    type="text"
+                    placeholder="John Doe">
+
+            </div>
+
+            <!-- Phone -->
+
+            <div
+                id="phoneField"
+                class="form-group">
+
+                <label for="phone">
+
+                    Phone Number
+
+                </label>
+
+                <input
+                    id="phone"
+                    type="tel"
+                    placeholder="0712345678">
+
+            </div>
+
+            <!-- Business -->
+
+            <div
+                id="businessField"
+                class="form-group">
+
+                <label for="business">
+
+                    Business Name
+
+                </label>
+
+                <input
+                    id="business"
+                    type="text"
+                    placeholder="Business Name">
+
+            </div>
+
+            <!-- Till -->
+
+            <div
+                id="tillNumberField"
+                class="form-group">
+
+                <label for="tillNumber">
+
+                    Till Number
+
+                </label>
+
+                <input
+                    id="tillNumber"
+                    type="number"
+                    placeholder="123456">
+
+            </div>
+
+            <!-- Amount -->
+
+            <div class="form-group">
+
+                <label for="amount">
+
+                    Amount (KES)
+
+                </label>
+
+                <input
+                    id="amount"
+                    type="number"
+                    placeholder="0">
+
+            </div>
+
+            <!-- Current Balance -->
+
+            <div class="form-group">
+
+                <label for="balance">
+
+                    Current M-PESA Balance
+
+                </label>
+
+                <input
+                    id="balance"
+                    type="number"
+                    placeholder="0">
+
+            </div>
+
+            <button
+                id="generateButton"
+                type="button"
+                class="generate-button">
+
+                Generate SMS
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+CONVERSATION PAGE
+========================================== -->
+
+<section
+    id="chatPage"
+    class="page">
+
+    <div class="page-content conversation-page">
+
+        <header class="page-header">
+
+            <button
+                class="back-button"
+                data-back>
 
                 ←
 
@@ -332,39 +288,86 @@ CONVERSATION PAGE
 
         </header>
 
-        <div
-
+        <main
             id="generatedMessage"
+            class="conversation-container">
 
-            class="conversation">
+            <!--
 
-            <!-- Messages are generated here -->
+            Messages will be inserted here by JavaScript.
 
-        </div>
+            Structure of each generated message:
+
+            <div class="message-group">
+
+                <div class="sms-bubble">
+
+                    Message...
+
+                </div>
+
+                <div class="preview-card">
+
+                    Tap to load preview
+
+                </div>
+
+                <div class="message-time">
+
+                    Today, 11:58 AM
+
+                </div>
+
+            </div>
+
+            -->
+
+        </main>
+
+        <!-- This stays at the bottom.
+             Only ONE reply notice in the whole conversation. -->
+
+        <footer class="conversation-footer">
+
+            <div class="reply-notice">
+
+                Sender can't accept replies.
+
+                <span>
+
+                    Contact them directly.
+
+                </span>
+
+                <a href="#">
+
+                    Learn more
+
+                </a>
+
+            </div>
+
+        </footer>
 
     </div>
 
 </section>
 
-<!-- ==========================================================
+<!-- ==========================================
 SETTINGS PAGE
-=========================================================== -->
+========================================== -->
 
 <section
-
     id="settingsPage"
-
     class="page">
 
-    <div class="settings-container">
+    <div class="page-content">
 
         <header class="page-header">
 
             <button
-
-                data-back
-
-                class="back-button">
+                class="back-button"
+                data-back>
 
                 ←
 
@@ -382,26 +385,23 @@ SETTINGS PAGE
 
             <div class="form-group">
 
-                <label>
+                <label
+                    for="defaultBalance">
 
                     Default Balance
 
                 </label>
 
                 <input
-
-                    type="number"
-
                     id="defaultBalance"
-
+                    type="number"
                     placeholder="5000">
 
             </div>
 
-            <div class="form-group remember-setting">
+            <div class="checkbox-group">
 
                 <label
-
                     for="rememberBalance">
 
                     Remember Balance
@@ -409,21 +409,15 @@ SETTINGS PAGE
                 </label>
 
                 <input
-
-                    type="checkbox"
-
                     id="rememberBalance"
-
+                    type="checkbox"
                     checked>
 
             </div>
 
             <button
-
                 type="button"
-
                 class="menu-button"
-
                 onclick="saveSettings()">
 
                 Save Settings
@@ -431,11 +425,8 @@ SETTINGS PAGE
             </button>
 
             <button
-
                 type="button"
-
                 class="menu-button secondary"
-
                 onclick="resetSettings()">
 
                 Reset Settings
@@ -447,12 +438,11 @@ SETTINGS PAGE
     </div>
 
 </section>
-
 </div>
 
-<!-- ==========================================================
+<!-- ==========================================
 JAVASCRIPT
-=========================================================== -->
+========================================== -->
 
 <script src="js/utils.js"></script>
 <script src="js/settings.js"></script>
