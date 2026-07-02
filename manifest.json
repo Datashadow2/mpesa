@@ -1,0 +1,39 @@
+{
+  "name": "M-PESA Message Generator",
+  "short_name": "MPESA",
+  "description": "Generate realistic Kenyan M-PESA confirmation SMS messages",
+  "start_url": "/mpesa/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "categories": ["finance", "productivity"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%23000000'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-family='sans-serif' font-size='48' font-weight='bold'%3EMPESA%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='%23000000'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-family='sans-serif' font-size='128' font-weight='bold'%3EMPESA%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Send Money",
+      "short_name": "Send",
+      "description": "Generate Send Money SMS",
+      "url": "/mpesa/index.html?action=send"
+    },
+    {
+      "name": "Buy Goods",
+      "short_name": "Goods",
+      "description": "Generate Buy Goods SMS",
+      "url": "/mpesa/index.html?action=goods"
+    }
+  ]
+}
