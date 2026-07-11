@@ -19,88 +19,84 @@
     // ============================================
     // UTILITY FUNCTIONS
     // ============================================
-    const Utils = {
-        generateId: function() {
-            return Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
-        },
+   const Utils = {
+    generateId: function() {
+        return Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
+    },
 
-        formatCurrency: function(amount) {
-            return 'Ksh' + Number(amount).toFixed(2);
-        },
+    formatCurrency: function(amount) {
+        return 'Ksh' + Number(amount).toFixed(2);
+    },
 
-        formatCurrencyWithCommas: function(amount) {
-            return 'KSh ' + Number(amount).toLocaleString('en-KE', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-        },
+    formatCurrencyWithCommas: function(amount) {
+        return 'KSh ' + Number(amount).toLocaleString('en-KE', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    },
 
-    
+    formatDate: function(date) {
+        const months = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
 
-        formatDate: function(date) {
-    const months = [
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ];
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
 
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = months[date.getMonth()];
-    const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    },
 
-    return `${day}/${month}/${year}`;
-},
+    formatTime: function(date) {
+        return date.toLocaleTimeString('en-KE', {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
+    },
 
-formatTime: function(date) {
-    return date.toLocaleTimeString('en-KE', {
-        hour: 'numeric',
-        minute: '2-digit',
-        hour12: true
-    });
-},
+    getTodayStart: function() {
+        const now = new Date();
+        return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    },
 
-getTodayStart: function() {
-    const now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
-},
+    isToday: function(date) {
+        const today = new Date();
+        return date.toDateString() === today.toDateString();
+    },
 
-isToday: function(date) {
-    const today = new Date();
-    return date.toDateString() === today.toDateString();
-},
+    isYesterday: function(date) {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        return date.toDateString() === yesterday.toDateString();
+    },
 
-isYesterday: function(date) {
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    return date.toDateString() === yesterday.toDateString();
-},
+    isValidPhone: function(phone) {
+        const cleaned = phone.replace(/\s/g, '');
 
-isValidPhone: function(phone) {
-    const cleaned = phone.replace(/\s/g, '');
+        return (
+            /^07\d{8}$/.test(cleaned) ||
+            /^01\d{8}$/.test(cleaned) ||
+            /^2547\d{8}$/.test(cleaned) ||
+            /^2541\d{8}$/.test(cleaned)
+        );
+    },
 
-    return (
-        /^07\d{8}$/.test(cleaned) ||
-        /^01\d{8}$/.test(cleaned) ||
-        /^2547\d{8}$/.test(cleaned) ||
-        /^2541\d{8}$/.test(cleaned)
-    );
-},
+    formatPhone: function(phone) {
+        let cleaned = phone.replace(/\s/g, '');
 
-formatPhone: function(phone) {
-    let cleaned = phone.replace(/\s/g, '');
+        if (cleaned.startsWith('254')) {
+            cleaned = '0' + cleaned.substring(3);
+        }
 
-    if (cleaned.startsWith('254')) {
-        cleaned = '0' + cleaned.substring(3);
+        if (/^0\d{9}$/.test(cleaned)) {
+            return cleaned.replace(/(\d{4})(\d{3})(\d{3})/, '$1$2$3');
+        }
+
+        return cleaned;
     }
-
-    if (/^0\d{9}$/.test(cleaned)) {
-        return cleaned.replace(/(\d{4})(\d{3})(\d{3})/, '$1$2$3');
-    }
-
-    return cleaned;
-}
-    }
-    };
-
+};
     // ============================================
     // REFERENCE GENERATOR
     // ============================================
