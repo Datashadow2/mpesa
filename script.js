@@ -98,6 +98,7 @@ formatPhone: function(phone) {
 
     return cleaned;
 }
+    }
     };
 
     // ============================================
