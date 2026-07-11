@@ -1,6 +1,6 @@
 /* ========================================
    M-PESA MESSAGE GENERATOR
-   Google Messages Dark Mode - Native Android
+   Google Messages Dark Mode - Version 2
    ======================================== */
 
 /* ===== CSS Variables ===== */
@@ -27,10 +27,12 @@
   --spacing-lg: 16px;
   --spacing-xl: 20px;
   --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
   --font-family: 'Roboto', Arial, sans-serif;
-  --bubble-max-width: 82%;
+  --bubble-max-width: 78%;
   --transition-fast: 0.12s ease;
   --transition-medium: 0.2s ease;
+  --header-height: 64px;
 }
 
 /* ===== Reset ===== */
@@ -85,7 +87,7 @@ body {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  animation: fadeIn 0.12s ease;
+  animation: fadeIn 0.15s ease;
 }
 
 .screen.active {
@@ -110,7 +112,18 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
@@ -288,20 +301,98 @@ body {
 }
 
 /* ========================================
-   CONVERSATION SCREEN
+   CONVERSATION SCREEN - VERSION 2
    ======================================== */
 #conversation-screen {
-  padding: var(--spacing-md) var(--spacing-md) 0;
+  padding: 0;
   overflow: hidden;
 }
 
+/* ===== Conversation Header ===== */
+.conversation-header {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  height: var(--header-height);
+  gap: var(--spacing-sm);
+  animation: slideDown 0.15s ease;
+}
+
+.header-back-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 24px;
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast);
+}
+
+.header-back-btn:active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FF6D00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(255, 109, 0, 0.3);
+  font-weight: 500;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.header-title {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+}
+
+.header-menu-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 20px;
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast);
+  letter-spacing: 2px;
+}
+
+.header-menu-btn:active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Message List ===== */
 #message-list {
   flex: 1;
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding-bottom: var(--spacing-sm);
+  gap: 4px;
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -315,59 +406,77 @@ body {
   border-radius: 3px;
 }
 
+/* ===== Message Items ===== */
 .message-item {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   max-width: var(--bubble-max-width);
-  animation: fadeIn 0.12s ease;
+  animation: fadeIn 0.15s ease;
+  transform-origin: left center;
 }
 
+/* ===== SMS Bubble - Google Messages Style ===== */
 .sms-bubble {
   background: var(--bg-card);
-  padding: 9px 13px;
-  border-radius: 18px 18px 18px 4px;
+  padding: 10px 14px;
+  border-radius: 20px 20px 20px 4px;
   font-size: 14px;
-  line-height: 1.22;
-  letter-spacing: -0.1px;
+  line-height: 1.3;
+  letter-spacing: -0.05px;
   color: var(--text-primary);
   width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
+  transform-origin: left center;
+  transition: transform var(--transition-fast);
 }
 
+/* ===== Preview Card - Attached to Bubble ===== */
 .preview-card {
   background: var(--bg-surface);
-  padding: 8px 13px;
-  border-radius: 0 0 12px 12px;
+  padding: 6px 14px 8px;
+  border-radius: 0 0 16px 16px;
   font-size: 13px;
   color: var(--text-secondary);
   width: 100%;
   margin-top: 0;
+  transform-origin: left center;
+  transition: transform var(--transition-fast);
 }
 
+/* ===== Timestamp ===== */
 .timestamp {
   font-size: 11px;
   color: var(--text-hint);
   margin-top: var(--spacing-2xs);
   padding-left: var(--spacing-md);
   letter-spacing: 0.2px;
+  transform-origin: left center;
 }
 
-/* ===== Conversation Footer ===== */
+/* ===== Conversation Footer - Version 2 ===== */
 #conversation-footer {
   margin-top: auto;
   flex-shrink: 0;
-  background: var(--bg-primary);
-  padding: var(--spacing-md) 0 var(--spacing-lg);
+  background: var(--bg-card);
+  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-md);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin-left: var(--spacing-md);
+  margin-right: var(--spacing-md);
+  margin-bottom: 0;
   border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  font-size: 13px;
+  gap: 1px;
+  font-size: 12px;
   color: var(--text-secondary);
+  line-height: 1.4;
+  animation: slideDown 0.15s ease;
 }
 
 #conversation-footer .learn-more {
@@ -565,16 +674,31 @@ input[type="number"] {
 
   .sms-bubble {
     font-size: 13px;
-    padding: 8px 11px;
+    padding: 8px 12px;
   }
 
   .preview-card {
     font-size: 12px;
-    padding: 6px 11px;
+    padding: 5px 12px 7px;
   }
 
   .timestamp {
     font-size: 10px;
+  }
+
+  .header-title {
+    font-size: 16px;
+  }
+
+  .header-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .conversation-header {
+    height: 56px;
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
 }
 
@@ -640,6 +764,40 @@ input[type="number"] {
 
   .setting-group {
     padding: var(--spacing-sm) 0;
+  }
+
+  .conversation-header {
+    height: 52px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .header-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .header-title {
+    font-size: 16px;
+  }
+
+  #conversation-footer {
+    padding: var(--spacing-xs) var(--spacing-lg) var(--spacing-sm);
+    font-size: 11px;
+  }
+
+  #message-list {
+    padding: var(--spacing-xs) var(--spacing-md) var(--spacing-xs);
+  }
+
+  .sms-bubble {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .preview-card {
+    padding: 5px 12px 7px;
+    font-size: 12px;
   }
 }
 
