@@ -114,6 +114,7 @@ formatPhone: function(phone) {
 
     return cleaned;
 }
+    };
 
     // ============================================
     // REFERENCE GENERATOR
