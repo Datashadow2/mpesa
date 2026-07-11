@@ -255,54 +255,59 @@
     // ============================================
     // TRANSACTION ENGINE
     // ============================================
-    const FEE_TABLE = [
-    { max: 49, fee: 0 },
-    { max: 100, fee: 0 },
-    { max: 500, fee: 7 },
-    { max: 1000, fee: 13 },
-    { max: 1500, fee: 23 },
-    { max: 2500, fee: 33 },
-    { max: 3500, fee: 53 },
-    { max: 5000, fee: 57 },
-    { max: 7500, fee: 78 },
-    { max: 10000, fee: 90 },
-    { max: 15000, fee: 100 },
-    { max: 20000, fee: 105 },
-    { max: 35000, fee: 108 },
-    { max: 50000, fee: 108 },
-    { max: 150000, fee: 108 },
-    { max: Infinity, fee: 108 }
-];
+  // ============================================
+// TRANSACTION ENGINE
+// ============================================
+const TransactionEngine = {
+    FEE_TABLE: [
+        { max: 49, fee: 0 },
+        { max: 100, fee: 0 },
+        { max: 500, fee: 7 },
+        { max: 1000, fee: 13 },
+        { max: 1500, fee: 23 },
+        { max: 2500, fee: 33 },
+        { max: 3500, fee: 53 },
+        { max: 5000, fee: 57 },
+        { max: 7500, fee: 78 },
+        { max: 10000, fee: 90 },
+        { max: 15000, fee: 100 },
+        { max: 20000, fee: 105 },
+        { max: 35000, fee: 108 },
+        { max: 50000, fee: 108 },
+        { max: 150000, fee: 108 },
+        { max: Infinity, fee: 108 }
+    ],
 
-calculateFee(amount) {
-    return FEE_TABLE.find(f => amount <= f.max).fee;
-}
+    calculateFee: function(amount) {
+        const feeEntry = this.FEE_TABLE.find(f => amount <= f.max);
+        return feeEntry ? feeEntry.fee : 108;
+    },
 
-        createTransaction: function(type, data) {
-            const amount = Number(data.amount);
-            const fee = this.calculateFee(amount);
-            const reference = ReferenceGenerator.generate();
-            const timestamp = new Date();
+    createTransaction: function(type, data) {
+        const amount = Number(data.amount);
+        const fee = this.calculateFee(amount);
+        const reference = ReferenceGenerator.generate();
+        const timestamp = new Date();
 
-            const balanceResult = BalanceManager.processTransaction(amount, fee);
+        const balanceResult = BalanceManager.processTransaction(amount, fee);
 
-            return {
-                id: Utils.generateId(),
-                type: type,
-                transactionReference: reference,
-                timestamp: timestamp,
-                amount: amount,
-                fee: fee,
-                balanceBefore: balanceResult.balanceBefore,
-                balanceAfter: balanceResult.balanceAfter,
-                dailyRemaining: balanceResult.dailyRemaining,
-                recipient: data.recipient || null,
-                business: data.business || null,
-                till: data.till || null,
-                phone: data.phone || null
-            };
-        }
-    };
+        return {
+            id: Utils.generateId(),
+            type: type,
+            transactionReference: reference,
+            timestamp: timestamp,
+            amount: amount,
+            fee: fee,
+            balanceBefore: balanceResult.balanceBefore,
+            balanceAfter: balanceResult.balanceAfter,
+            dailyRemaining: balanceResult.dailyRemaining,
+            recipient: data.recipient || null,
+            business: data.business || null,
+            till: data.till || null,
+            phone: data.phone || null
+        };
+    }
+};
 
     // ============================================
     // TEMPLATE ENGINE
