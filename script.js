@@ -766,43 +766,46 @@ const TransactionEngine = {
         },
 
         _renderAllMessages: function(messages) {
-            const container = document.getElementById('message-list');
-            if (!container) return;
+    const container = document.getElementById('message-list');
+    if (!container) return;
 
-            container.innerHTML = '';
-            
-            if (messages.length === 0) {
-                return;
-            }
+    container.innerHTML = '';
+    
+    if (messages.length === 0) {
+        return;
+    }
 
-            let lastDate = null;
-            messages.forEach((msg, index) => {
-                const date = new Date(msg.timestamp);
-                const dateLabel = Utils.formatDate(date);
-                
-                // Add date separator
-                if (dateLabel !== lastDate) {
-                    const separator = document.createElement('div');
-                    separator.className = 'date-separator';
-                    separator.textContent = dateLabel;
-                    separator.style.cssText = `
-                        text-align: center;
-                        color: #9AA0A6;
-                        font-size: 12px;
-                        padding: 12px 0 8px;
-                        letter-spacing: 0.3px;
-                    `;
-                    container.appendChild(separator);
-                    lastDate = dateLabel;
-                }
+    // Create a reversed copy of the messages array (newest first)
+    const reversedMessages = [...messages].reverse();
+    
+    let lastDate = null;
+    reversedMessages.forEach((msg, index) => {
+        const date = new Date(msg.timestamp);
+        const dateLabel = Utils.formatDate(date);
+        
+        // Add date separator
+        if (dateLabel !== lastDate) {
+            const separator = document.createElement('div');
+            separator.className = 'date-separator';
+            separator.textContent = dateLabel;
+            separator.style.cssText = `
+                text-align: center;
+                color: #9AA0A6;
+                font-size: 12px;
+                padding: 12px 0 8px;
+                letter-spacing: 0.3px;
+            `;
+            container.appendChild(separator);
+            lastDate = dateLabel;
+        }
 
-                const messageEl = this._createMessageElement(msg);
-                container.appendChild(messageEl);
-            });
+        const messageEl = this._createMessageElement(msg);
+        container.appendChild(messageEl);
+    });
 
-            this._scrollToBottom();
-        },
-
+    // Remove this line to prevent auto-scrolling
+    // this._scrollToBottom();
+},
         _createMessageElement: function(msg) {
             const div = document.createElement('div');
             div.className = 'message-item';
